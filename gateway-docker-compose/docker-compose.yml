@@ -1,0 +1,29 @@
+version: '3.5'
+#all port number should be exposed appending 9
+services:
+
+  consul:
+    container_name: consul
+    image: hashicorp/consul:1.11.2
+    restart: always
+    volumes:
+      - ./consul/server.json:/consul/config/server1.json
+      - ./consul/certs/:/consul/config/certs/
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+    networks:
+      - zestic.internal
+      - zestic.external
+      - overnet #between host
+    command: "agent -bootstrap-expect=1"
+
+networks:
+  zestic.internal:
+    external: true
+  zestic.external:
+    external: true
+  overnet:
+    external: true
+    driver: overlay
