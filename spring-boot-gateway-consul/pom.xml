@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>spring-boot-gateway-parent</artifactId>
-        <groupId>com.zestic.authy</groupId>
+        <groupId>in.zestic.authy</groupId>
         <version>1.0.0</version>
     </parent>
-    <groupId>com.zestic.gateway</groupId>
+    <groupId>in.zestic.gateway</groupId>
     <artifactId>spring-boot-gateway-consul</artifactId>
     <version>1.0.0</version>
     <name>spring-boot-gateway-consul</name>

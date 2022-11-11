@@ -4,16 +4,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>spring-boot-gateway-parent</artifactId>
-        <groupId>com.zestic.authy</groupId>
+        <groupId>in.zestic.authy</groupId>
         <version>1.0.0</version>
     </parent>
-    <groupId>com.zestic.gateway</groupId>
+    <groupId>in.zestic.gateway</groupId>
     <artifactId>spring-boot-gateway</artifactId>
     <version>1.0.0</version>
     <name>spring-boot-gateway</name>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
@@ -24,20 +32,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-security</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator</artifactId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -46,18 +51,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-authz-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.googlecode.jmapper-framework</groupId>
-            <artifactId>jmapper-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zestic.springboot.common</groupId>
-            <artifactId>spring-boot-starter-common</artifactId>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
         </dependency>
     </dependencies>
 

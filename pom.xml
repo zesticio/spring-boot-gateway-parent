@@ -8,7 +8,7 @@
         <artifactId>spring-boot-parent</artifactId>
         <version>1.0.1</version>
     </parent>
-    <groupId>com.zestic.authy</groupId>
+    <groupId>in.zestic.authy</groupId>
     <artifactId>spring-boot-gateway-parent</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -20,11 +20,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-authz-client</artifactId>
-                <version>16.1.1</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
