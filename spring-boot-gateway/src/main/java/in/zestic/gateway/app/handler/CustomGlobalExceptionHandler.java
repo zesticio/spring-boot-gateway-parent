@@ -16,7 +16,7 @@ public class CustomGlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     @Order(Ordered.LOWEST_PRECEDENCE)
-    public final ResponseEntity<Result> exceptionHandler(Exception ex, WebRequest request) {
+    public final ResponseEntity<Result> exceptionHandler(Exception ex) {
         logger.error("Internal error.", ex);
         return createErrorResponseEntity(ex, HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
