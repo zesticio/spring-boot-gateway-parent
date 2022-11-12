@@ -1,13 +1,11 @@
 package in.zestic.gateway.app.controller;
 
+import in.zestic.gateway.app.base.Constant;
 import in.zestic.gateway.app.base.Result;
 import in.zestic.gateway.app.document.Route;
 import in.zestic.gateway.app.exception.GatewayError;
 import in.zestic.gateway.app.service.RouteService;
 import in.zestic.gateway.app.validator.RouteValidator;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
@@ -20,8 +18,8 @@ import reactor.core.publisher.Mono;
 
 @Validated
 @RestController
-@RequestMapping(value = "/routes", produces = {MediaType.APPLICATION_JSON_VALUE})
-@Tag(name = "Test APIs", description = "Test APIs for demo purpose")
+@RequestMapping(value = Constant.BASE_URI + "/routes", produces = {MediaType.APPLICATION_JSON_VALUE})
+@Tag(name = "API Routes", description = "Add / update / delete API routes")
 public class RouteController {
 
     private final RouteService service;
@@ -32,13 +30,9 @@ public class RouteController {
 
     @SneakyThrows
     @PostMapping(path = "")
-    @Operation(description = "Get a test model demo",
-            parameters = {
-                    @Parameter(name = "name", in = ParameterIn.QUERY, required = true, description = "name parameter")
-            })
     public ResponseEntity<Result> create(@RouteValidator @RequestBody Route route) {
-        Result<Void> response = new Result(GatewayError.ROUTE_ADDED);
-        service.create(route);
+        Result<Mono<Route>> response = new Result(GatewayError.ROUTE_ADDED);
+        response.setData(service.create(route));
         return new ResponseEntity<Result>(response, HttpStatus.valueOf(response.getCode()));
     }
 
